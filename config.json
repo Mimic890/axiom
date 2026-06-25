@@ -1,0 +1,202 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "~/.nanobot/workspace",
+      "modelPreset": "normal",
+      "maxTokens": 131072,
+      "contextWindowTokens": 1048576,
+      "contextBlockLimit": null,
+      "temperature": 0.1,
+      "fallbackModels": ["hard", "ultra", "free"],
+      "maxToolIterations": 10,
+      "maxConcurrentSubagents": 1,
+      "maxToolResultChars": 3000,
+      "toolHintMaxLength": 40,
+      "reasoningEffort": null,
+      "timezone": "Europe/Moscow",
+      "botName": "axiom",
+      "botIcon": "👾",
+      "unifiedSession": false,
+      "disabledSkills": [],
+      "idleCompactAfterMinutes": 3,
+      "maxMessages": 10,
+      "consolidationRatio": 0.2,
+      "dream": {
+        "enabled": true,
+        "intervalH": 4,
+        "modelOverride": "free",
+        "maxBatchSize": 20,
+        "maxIterations": 15,
+        "annotateLineAges": true
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "token": "${TELEGRAM_TOKEN}",
+      "mode": "polling",
+      "allowFrom": [
+        "${TELEGRAM_USER_ID}"
+      ],
+      "proxy": null,
+      "replyToMessage": false,
+      "reactEmoji": "✦",
+      "groupPolicy": "mention",
+      "connectionPoolSize": 32,
+      "poolTimeout": 5.0,
+      "streaming": true,
+      "inlineKeyboards": true,
+      "streamEditInterval": 0.6,
+      "webhookUrl": "",
+      "webhookListenHost": "127.0.0.1",
+      "webhookListenPort": 8081,
+      "webhookPath": "/telegram",
+      "webhookSecretToken": "",
+      "webhookMaxConnections": 1
+    }
+  },
+  "transcription": {
+    "enabled": true,
+    "provider": "groq",
+    "model": "whisper-large-v3-turbo",
+    "language": null,
+    "maxDurationSec": 600,
+    "maxUploadMb": 19.5
+  },
+  "providers": {
+    "openrouter": {
+      "apiKey": "${OPENROUTER_API_KEY}",
+      "apiBase": "",
+      "apiType": "auto",
+      "extraHeaders": null,
+      "extraBody": null,
+      "extraQuery": null
+    },
+    "groq": {
+      "apiKey": "${GROQ_API_KEY}",
+      "apiBase": "",
+      "apiType": "auto",
+      "extraHeaders": null,
+      "extraBody": null,
+      "extraQuery": null
+    },
+    "ollama": {
+      "apiKey": null,
+      "apiBase": null,
+      "apiType": "auto",
+      "extraHeaders": null,
+      "extraBody": null,
+      "extraQuery": null
+    },
+    "xiaomiMimo": {
+      "apiKey": "${XIAOMI_MIMO_API_KEY}",
+      "apiBase": "${XIAOMI_MIMO_URL}", 
+      "apiType": "auto",
+      "extraHeaders": null,
+      "extraBody": null,
+      "extraQuery": null
+    }
+  },
+  "api": {
+    "host": "127.0.0.1",
+    "port": 8900,
+    "timeout": 120.0
+  },
+  "gateway": {
+    "host": "127.0.0.1",
+    "port": 18790,
+    "heartbeat": {
+      "enabled": true,
+      "intervalS": 1800,
+      "keepRecentMessages": 8
+    }
+  },
+  "tools": {
+    "web": {
+      "enable": true,
+      "proxy": null,
+      "userAgent": null,
+      "search": {
+        "provider": "duckduckgo",
+        "apiKey": "",
+        "baseUrl": "",
+        "maxResults": 5,
+        "timeout": 30
+      },
+      "fetch": {
+        "useJinaReader": true
+      }
+    },
+    "exec": {
+      "enable": true,
+      "timeout": 60,
+      "pathPrepend": "",
+      "pathAppend": "",
+      "sandbox": "",
+      "allowedEnvKeys": [],
+      "allowPatterns": [],
+      "denyPatterns": []
+    },
+    "file": {
+      "enable": true
+    },
+    "cliApps": {
+      "enable": true,
+      "installTimeout": 300,
+      "runTimeout": 60,
+      "catalogTtlSeconds": 3600
+    },
+    "my": {
+      "enable": true,
+      "allowSet": false
+    },
+    "imageGeneration": {
+      "enabled": false,
+      "provider": "openrouter",
+      "model": "google/gemini-2.5-flash-image",
+      "defaultAspectRatio": "1:1",
+      "defaultImageSize": "1K",
+      "maxImagesPerTurn": 4,
+      "saveDir": "generated"
+    },
+    "restrictToWorkspace": false,
+    "webuiAllowLocalServiceAccess": true,
+    "mcpServers": {},
+    "ssrfWhitelist": []
+  },
+  "modelPresets": {
+    "ultra": {
+      "label": "Ultra",
+      "provider": "openrouter",
+      "model": "z-ai/glm-5.2",
+      "maxTokens": 131072,
+      "contextWindowTokens": 1048576,
+      "temperature": 0.1
+    },
+    "hard": {
+      "label": "Hard",
+      "provider": "openrouter",
+      "model": "xiaomi/mimo-v2.5-pro",
+      "maxTokens": 131072,
+      "contextWindowTokens": 1048576,
+      "temperature": 0.2
+    },
+    "normal": {
+      "label": "Normal",
+      "provider": "openrouter",
+      "model": "xiaomi/mimo-v2.5",
+      "maxTokens": 131072,
+      "contextWindowTokens": 1048576,
+      "temperature": 0.1
+    },
+    "free": {
+      "label": "Free",
+      "provider": "openrouter",
+      "model": "openrouter/owl-alpha",
+      "maxTokens": 131072,
+      "contextWindowTokens": 1048576,
+      "temperature": 0.2
+    }
+  }
+}
