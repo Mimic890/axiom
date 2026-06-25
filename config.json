@@ -62,7 +62,7 @@
     "model": "whisper-large-v3-turbo",
     "language": null,
     "maxDurationSec": 600,
-    "maxUploadMb": 19.5
+    "maxUploadMb": 19
   },
   "providers": {
     "openrouter": {
