@@ -1,1 +1,8 @@
 .env
+cli-apps/
+cron/
+media/
+web-ui/
+workspace/memory/history.jsonl
+workspace/sessions/
+.venv/
