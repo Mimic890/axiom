@@ -1,0 +1,16 @@
+[Unit]
+Description=Axiom nanobot gateway
+After=network.target
+
+[Service]
+Type=simple
+User=axiom
+Group=axiom
+WorkingDirectory=/home/axiom/.nanobot
+Environment="PATH=/home/axiom/.local/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/bin/bash -c 'set -a; source /home/axiom/.nanobot/.env; set +a; exec /home/axiom/.local/bin/nanobot gateway'
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
