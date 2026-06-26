@@ -5,7 +5,7 @@
     group = "axiom";
     home = "/home/axiom";
     createHome = true;
-    shell = pkgs.fish;
+    shell = pkgs.bash;
   };
 
   users.groups.axiom = {};
